@@ -16,12 +16,12 @@ Ollama provides an efficient way to run local AI models. Follow the instructions
 ### Installation Steps for Ollama
 #### For macOS
 1. Download the Ollama application:
-   [Download Ollama for macOS](https://ollama.ai/download/macos)
+   [Download Ollama for macOS](https://ollama.com/download/mac)
 2. Install Ollama by opening the downloaded `.dmg` file and following the on-screen instructions.
 
 #### For Windows
 1. Download the Ollama application:
-   [Download Ollama for Windows](https://ollama.ai/download/windows)
+   [Download Ollama for Windows](https://ollama.com/download/windows)
 2. Run the installer and follow the on-screen instructions to complete the installation.
 
 ### Pulling the LLaMA 3.1 Model
