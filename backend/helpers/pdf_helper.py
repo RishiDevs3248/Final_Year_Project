@@ -11,4 +11,6 @@ def extract_text_from_pdf(file):
             text += page.extract_text() + "\n"
     except Exception as e:
         raise ValueError(f"Failed to extract text from PDF: {e}")
+    
+    print("Extracted text from PDF.",text)
     return text

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import aptitude_routes, skills_routes, prediction_routes
+from routes import aptitude_routes, skills_routes, prediction_routes,ats_routes
 
 app = FastAPI(
     title="Aptitude Question Generator",
@@ -21,6 +21,7 @@ app.add_middleware(
 app.include_router(prediction_routes.router)
 app.include_router(aptitude_routes.router)
 app.include_router(skills_routes.router)
+app.include_router(ats_routes.router)
 
 @app.get("/")
 def read_root():

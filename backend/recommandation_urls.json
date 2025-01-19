@@ -1,0 +1,207 @@
+{
+    "Python": {
+        "Platforms": [
+            "https://www.codecademy.com/learn/learn-python-3",
+            "https://www.freecodecamp.org/learn/scientific-computing-with-python/",
+            "https://www.khanacademy.org/computing/computer-programming/python",
+            "https://www.w3schools.com/python/",
+            "https://docs.python.org/3/tutorial/",
+            "https://developers.google.com/edu/python/",
+            "https://www.datacamp.com/courses/intro-to-python-for-data-science"
+        ],
+        "Documentation": [
+            "https://docs.python.org/3/",
+            "https://realpython.com/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/python",
+            "https://leetcode.com/problems/tag/python/",
+            "https://www.codewars.com/collections/python",
+            "https://projecteuler.net/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/learnpython/"
+        ]
+    },
+    "Java": {
+        "Platforms": [
+            "https://docs.oracle.com/en/java/javase/19/docs/api/index.html",
+            "https://www.codecademy.com/learn/learn-java",
+            "https://www.udemy.com/topic/java-programming-language/",
+            "https://www.coursera.org/courses?query=java"
+        ],
+        "Documentation": [
+            "https://docs.oracle.com/en/java/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/java",
+            "https://leetcode.com/problems/tag/java/",
+            "https://www.codewars.com/collections/java"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/java/"
+        ]
+    },
+    "JavaScript": {
+        "Platforms": [
+            "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+            "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            "https://eloquentjavascript.net/",
+            "https://javascript.info/",
+            "https://www.codecademy.com/learn/learn-javascript"
+        ],
+        "Frameworks": [
+            "https://reactjs.org/",
+            "https://reactjs.org/tutorial/tutorial.html",
+            "https://angular.io/",
+            "https://angular.io/tutorial",
+            "https://vuejs.org/",
+            "https://vuejs.org/guide/"
+        ],
+        "Practice": [
+            "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/projects/",
+            "https://leetcode.com/problems/tag/javascript/",
+            "https://www.codewars.com/collections/javascript",
+            "https://www.frontendmentor.io/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/javascript/"
+        ]
+    },
+    "Git": {
+        "Platforms": [
+            "https://lab.github.com/",
+            "https://www.atlassian.com/git/tutorials",
+            "https://git-scm.com/doc/"
+        ],
+        "Tools": [
+            "https://desktop.github.com/",
+            "https://www.gitkraken.com/",
+            "https://www.sourcetreeapp.com/"
+        ],
+        "Practice": [
+            "https://github.com/explore",
+            "Personal Projects"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://github.com/community/community"
+        ]
+    },
+    "Data Science": {
+        "Platforms": [
+            "https://www.coursera.org/specializations/jhu-data-science",
+            "https://www.edx.org/course/subject/data-science",
+            "https://www.kaggle.com/learn"
+        ],
+        "Tools": [
+            "https://pandas.pydata.org/",
+            "https://numpy.org/",
+            "https://scikit-learn.org/stable/",
+            "https://www.r-project.org/",
+            "https://jupyter.org/"
+        ],
+        "Datasets": [
+            "https://www.kaggle.com/datasets",
+            "https://archive.ics.uci.edu/ml/index.php"
+        ],
+        "Community": [
+            "https://www.kaggle.com/discussions",
+            "https://www.reddit.com/r/datascience/"
+        ]
+    },
+    "Cloud Computing": {
+        "Platforms": [
+            "https://aws.amazon.com/education/awseducate/",
+            "https://cloud.google.com/training/",
+            "https://azure.microsoft.com/en-us/free/fundamentals/"
+        ],
+        "Services": [
+            "https://aws.amazon.com/free/",
+            "https://cloud.google.com/free/",
+            "https://azure.microsoft.com/en-us/free/"
+        ],
+        "Documentation": [
+            "https://aws.amazon.com/documentation/",
+            "https://cloud.google.com/docs/",
+            "https://docs.microsoft.com/en-us/azure/"
+        ]
+    },
+    "C++": {
+        "Platforms": [
+            "https://www.cplusplus.com/doc/",
+            "https://www.learncpp.com/",
+            "https://www.w3schools.com/cpp/"
+        ],
+        "Documentation": [
+            "https://en.cppreference.com/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/cpp",
+            "https://leetcode.com/problems/tag/c++/",
+            "https://www.codewars.com/collections/c++"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/cpp/"
+        ]
+    },
+    "C#": {
+        "Platforms": [
+            "https://docs.microsoft.com/en-us/dotnet/csharp/",
+            "https://www.w3schools.com/cs/"
+        ],
+        "Documentation": [
+            "https://docs.microsoft.com/en-us/dotnet/csharp/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/csharp",
+            "https://leetcode.com/problems/tag/c-sharp/",
+            "https://www.codewars.com/collections/csharp"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/csharp/"
+        ]
+    },
+    "Go": {
+        "Platforms": [
+            "https://go.dev/tour/",
+            "https://www.w3schools.com/go/"
+        ],
+        "Documentation": [
+            "https://go.dev/doc/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/go",
+            "https://leetcode.com/problems/tag/go/",
+            "https://www.codewars.com/collections/go"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/golang/"
+        ]
+    },
+    "Ruby": {
+        "Platforms": [
+            "https://www.ruby-lang.org/en/",
+            "https://www.codecademy.com/learn/learn-ruby",
+            "https://www.learncodethehardway.org/ruby/"
+        ],
+        "Documentation": [
+            "https://ruby-doc.org/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/ruby",
+            "https://leetcode.com/problems/tag/ruby/",
+            "https://www.codewars.com/collections/ruby"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/ruby/"
+        ]
+    }
+}
