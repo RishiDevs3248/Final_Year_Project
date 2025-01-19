@@ -44,6 +44,9 @@ const UploadPDF = () => {
             alert("Please upload a file.");
             return;
         }
+
+        if (loading) return; // Prevent multiple calls during loading
+
         setLoading(true);
         const formData = new FormData();
         formData.append("file", file);
@@ -53,13 +56,14 @@ const UploadPDF = () => {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             console.log(response.data);
-            setSkills(response.data.skills); // Assuming API returns { skills: [...] }
+            setSkills(response.data.skills);
         } catch (error) {
             console.error("Error uploading file:", error);
         } finally {
             setLoading(false);
         }
     };
+
 
     const handleGoToTestPage = () => {
         if (skills.length === 0) {

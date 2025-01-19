@@ -49,19 +49,31 @@ def process_skills_with_ollama(text):
         print("No skills section found.")
         return []
 
-    # Step 2: Send the cleaned skills section to Ollama for structured extraction
-    prompt = f"Extract only the list of skills from the following text and return it in this format: [item1, item2, item3, ...] without any additional explanation:\n{skills_section}"
+    # Step 2: Prepare a prompt for Ollama
+    prompt = (
+        f"Extract the skills from the following text and return them as a JSON-formatted list of strings. "
+        f"Ensure the response contains only the list in this format: [item1, item2, item3, ...] with no additional text or explanation:\n\n"
+        f"{skills_section}"
+    )
     response = call_llama_api(prompt)
 
+    # Step 3: Extract and clean the response
     response_str = response.get("response", "")
 
-    response_str = response_str.strip("[]")  # Removes both the opening and closing square brackets
-    
-    print(response_str)
+    # Apply regex to find content inside square brackets
+    bracket_pattern = re.compile(r"\[([\s\S]+?)\]")  # Matches content inside square brackets
+    match = bracket_pattern.search(response_str)
 
-    # Clean and process the response to ensure it's just the list of skills
-    skill_list = [skill.strip().capitalize() for skill in response_str.split(",") if skill.strip()]
-    
+    if not match:
+        print("No content found inside square brackets in the response.")
+        return []
 
-    
+    # Extract content within the square brackets
+    bracketed_content = match.group(1)
+
+    print(bracketed_content)
+
+    # Split the content into a list and clean it
+    skill_list = [skill.strip().capitalize() for skill in bracketed_content.split(",") if skill.strip()]
+
     return skill_list

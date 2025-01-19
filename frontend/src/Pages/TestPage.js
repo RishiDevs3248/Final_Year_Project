@@ -23,22 +23,45 @@ const TestPage = () => {
     const [answers, setAnswers] = useState({});
     const [result, setResult] = useState(null);
 
+    // Helper function to sanitize options
+    const sanitizeOptions = (options) => {
+        return options
+            .map((option) => option.trim().replace(/\s+/g, ' ')) // Trim and replace extra spaces
+            .filter((option) => option !== ''); // Remove empty options
+    };
+
     useEffect(() => {
         const fetchQuestions = async () => {
+            if (skills.length === 0) return; // Ensure skills array is not empty
+
             try {
-                const response = await axios.post('http://127.0.0.1:8000/aptitude/generate',
+                const response = await axios.post(
+                    'http://127.0.0.1:8000/aptitude/generate',
                     { skills },
                     { headers: { 'Content-Type': 'application/json' } }
                 );
-                setQuestions(response.data.skill_questions); // Assuming API returns skill_questions
+
+                // Sanitize the options for each question
+                const sanitizedQuestions = {};
+                Object.keys(response.data.skill_questions).forEach((section) => {
+                    sanitizedQuestions[section] = response.data.skill_questions[section].map(
+                        (questionData) => ({
+                            ...questionData,
+                            options: sanitizeOptions(questionData.options), // Sanitize options
+                        })
+                    );
+                });
+
+                setQuestions(sanitizedQuestions); // Update state with sanitized questions
             } catch (error) {
-                console.error("Error generating questions:", error);
+                console.error('Error generating questions:', error);
             }
         };
-        if (skills.length > 0) {
+
+        if (skills.length > 0 && !questions) {
             fetchQuestions();
         }
-    }, [skills]);
+    }, [skills, questions]);
 
     const handleAnswerChange = (section, questionIndex, answer) => {
         setAnswers((prev) => ({
@@ -51,15 +74,17 @@ const TestPage = () => {
     };
 
     const handleSubmit = () => {
-        let score = 0;
-        Object.keys(answers).forEach((section) => {
-            Object.keys(answers[section]).forEach((questionIndex) => {
-                if (answers[section][questionIndex] === questions[section][questionIndex].answer) {
+        const categoryScores = {};
+        Object.keys(questions).forEach((section) => {
+            let score = 0;
+            questions[section].forEach((questionData, questionIndex) => {
+                if (answers[section]?.[questionIndex] === questionData.answer) {
                     score++;
                 }
             });
+            categoryScores[section] = score; // Store score for each section
         });
-        setResult(score);
+        setResult(categoryScores); // Store category-wise results
     };
 
     if (!questions) {
@@ -78,7 +103,7 @@ const TestPage = () => {
             <Typography variant="h4" gutterBottom>
                 Skill Test
             </Typography>
-            {Object.keys(questions).map((section, sectionIndex) => (
+            {Object.keys(questions).map((section) => (
                 <Accordion key={section}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography variant="h6">{section}</Typography>
@@ -119,13 +144,17 @@ const TestPage = () => {
             >
                 Submit
             </Button>
-            {result !== null && (
-                <Typography
-                    variant="h5"
-                    style={{ marginTop: '20px', textAlign: 'center', color: 'green' }}
-                >
-                    Your score: {result}
-                </Typography>
+            {result && (
+                <div style={{ marginTop: '20px' }}>
+                    <Typography variant="h5" gutterBottom>
+                        Your Results:
+                    </Typography>
+                    {Object.keys(result).map((section) => (
+                        <Typography key={section} variant="h6" style={{ marginBottom: '10px' }}>
+                            {`${section}: ${result[section]} / ${questions[section].length}`}
+                        </Typography>
+                    ))}
+                </div>
             )}
         </div>
     );
