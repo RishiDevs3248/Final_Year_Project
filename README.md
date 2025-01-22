@@ -126,7 +126,30 @@ project-repo/
 
 ---
 
-## 4. Additional Notes
+## 4. Generating .pkl Files
+
+the `s_main.ipynb` notebook in the `backend/Notebooks` directory contains the code for training the model and saving the model, TF-IDF vectorizer, and label encoder as `.pkl` files. Follow these steps to generate these files:
+
+### Prerequisites
+- Jupyter Notebook installed on your system.
+
+### Steps to Generate .pkl Files
+
+- Open s_main.ipynb
+   - Run all the cells in the notebook to ensure that the model is trained, and the .pkl files are saved:
+   - Click Cell > Run All in the Jupyter Notebook interface.
+
+- After running all the cells, the following .pkl files will be saved:
+
+   1. random_forest_model.pkl (Model)
+   2. tfidf_vectorizer.pkl (TF-IDF Vectorizer)
+   3. label_encoder.pkl (Label Encoder)
+
+*NOTE:* COPY THESE IN MODELS FOLDER 
+
+---
+
+## 5. Additional Notes
 
 - Ensure Docker is running when using Ollama for the LLaMA 3.1 model.
 - Update dependencies as needed using:
