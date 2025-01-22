@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import {
     Accordion,
     AccordionSummary,
@@ -22,6 +22,7 @@ const TestPage = () => {
     const [questions, setQuestions] = useState(null);
     const [answers, setAnswers] = useState({});
     const [result, setResult] = useState(null);
+    const navigate = useNavigate();
 
     // Helper function to sanitize options
     const sanitizeOptions = (options) => {
@@ -62,6 +63,11 @@ const TestPage = () => {
             fetchQuestions();
         }
     }, [skills, questions]);
+
+    // Handle redirection to the Resources page
+    const handleRedirectToResources = () => {
+        navigate('/resources', { state: { skills } });
+    };
 
     const handleAnswerChange = (section, questionIndex, answer) => {
         setAnswers((prev) => ({
@@ -144,6 +150,14 @@ const TestPage = () => {
             >
                 Submit
             </Button>
+            <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleRedirectToResources}
+                style={{ marginTop: '20px', marginLeft: '10px' }}
+            >
+                View Resources
+            </Button>
             {result && (
                 <div style={{ marginTop: '20px' }}>
                     <Typography variant="h5" gutterBottom>
@@ -154,7 +168,16 @@ const TestPage = () => {
                             {`${section}: ${result[section]} / ${questions[section].length}`}
                         </Typography>
                     ))}
+                    <Button
+                        variant="outlined"
+                        color="secondary"
+                        onClick={handleRedirectToResources}
+                        style={{ marginTop: '20px', marginLeft: '10px' }}
+                    >
+                        View Resources
+                    </Button>
                 </div>
+                
             )}
         </div>
     );

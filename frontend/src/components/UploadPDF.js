@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Typography, CircularProgress, List, ListItem, Paper, Grid } from "@mui/material";
+import {
+    Box,
+    Button,
+    Typography,
+    CircularProgress,
+    List,
+    ListItem,
+    Paper,
+    Grid,
+    TextField,
+} from "@mui/material";
 import { styled } from "@mui/system";
 
 const Dropzone = styled(Paper)(({ isDragging }) => ({
@@ -16,6 +26,9 @@ const Dropzone = styled(Paper)(({ isDragging }) => ({
 const UploadPDF = () => {
     const [file, setFile] = useState(null);
     const [skills, setSkills] = useState([]);
+    const [jobDescription, setJobDescription] = useState("");
+    const [atsScore, setAtsScore] = useState(null);
+    const [predictedCategory, setPredictedCategory] = useState(null); // State for predicted category
     const [loading, setLoading] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const navigate = useNavigate();
@@ -39,13 +52,12 @@ const UploadPDF = () => {
         setIsDragging(false);
     };
 
+
     const handleUpload = async () => {
         if (!file) {
             alert("Please upload a file.");
             return;
         }
-
-        if (loading) return; // Prevent multiple calls during loading
 
         setLoading(true);
         const formData = new FormData();
@@ -55,15 +67,68 @@ const UploadPDF = () => {
             const response = await axios.post("http://localhost:8000/skills/extract", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
-            console.log(response.data);
             setSkills(response.data.skills);
         } catch (error) {
-            console.error("Error uploading file:", error);
+            console.error("Error extracting skills:", error);
         } finally {
             setLoading(false);
         }
     };
 
+    const handleAtsScore = async () => {
+        if (!file || !jobDescription.trim()) {
+            alert("Please upload a file and enter a job description.");
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            // Step 1: Extract skills from the uploaded file
+            const skillsFormData = new FormData();
+            skillsFormData.append("file", file);
+
+            const skillsResponse = await axios.post("http://localhost:8000/skills/extract", skillsFormData, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            // Update extracted skills in the state
+            const extractedSkills = skillsResponse.data.skills;
+            setSkills(extractedSkills);
+
+            if (!extractedSkills || extractedSkills.length === 0) {
+                alert("No skills were extracted from the resume.");
+                return;
+            }
+
+            // Step 2: Calculate ATS score using the extracted skills
+            const atsFormData = new FormData();
+            atsFormData.append("file", file);
+
+            const atsResponse = await axios.post("http://localhost:8000/ats/score", atsFormData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    "job-description": jobDescription, // Pass job description as a header
+                },
+            });
+
+            // Update ATS score in the state
+            setAtsScore(atsResponse.data.ats_score);
+
+            // Step 3: Call the prediction model API with extracted skills
+            const predictionResponse = await axios.post("http://localhost:8000/predict", {
+                skills: extractedSkills, // Send the extracted skills to the prediction API
+            });
+
+            // Set the predicted category state
+            setPredictedCategory(predictionResponse.data.predicted_label);
+        } catch (error) {
+            console.error("Error during ATS score calculation:", error);
+            alert("An error occurred while processing your request.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleGoToTestPage = () => {
         if (skills.length === 0) {
@@ -76,7 +141,7 @@ const UploadPDF = () => {
     return (
         <Box sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, textAlign: "center" }}>
-                Upload PDF to Extract Skills
+                Upload PDF to Extract Skills, Predict Position and Calculate ATS Score
             </Typography>
             <Grid container justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={6}>
@@ -99,18 +164,35 @@ const UploadPDF = () => {
                             style={{ display: "none" }}
                         />
                     </Dropzone>
+                    <TextField
+                        fullWidth
+                        label="Job Description"
+                        variant="outlined"
+                        multiline
+                        rows={4}
+                        value={jobDescription}
+                        onChange={(e) => setJobDescription(e.target.value)}
+                        sx={{ mt: 3 }}
+                    />
                     <Button
                         variant="contained"
                         color="primary"
                         fullWidth
                         sx={{ mt: 3 }}
-                        onClick={handleUpload}
+                        onClick={handleAtsScore}
                         disabled={loading}
                     >
-                        {loading ? <CircularProgress size={24} /> : "Upload and Extract Skills"}
+                        {loading ? <CircularProgress size={24} /> : "Extract Skills, Predict Position and Calculate ATS Score"}
                     </Button>
                 </Grid>
             </Grid>
+            {atsScore !== null && (
+                <Box sx={{ mt: 4 }}>
+                    <Typography variant="h5">
+                        ATS Score: <strong>{atsScore}%</strong>
+                    </Typography>
+                </Box>
+            )}
             {skills.length > 0 && (
                 <Box sx={{ mt: 4 }}>
                     <Typography variant="h5" gutterBottom>
@@ -123,6 +205,14 @@ const UploadPDF = () => {
                             </ListItem>
                         ))}
                     </List>
+                </Box>
+            )}
+            {predictedCategory && (
+                <Box sx={{ mt: 4 }}>
+                    <Typography variant="h5" gutterBottom>
+                        Predicted Category:
+                    </Typography>
+                    <Typography variant="body1">{predictedCategory}</Typography>
                 </Box>
             )}
             <Button

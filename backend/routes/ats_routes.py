@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException,UploadFile
+from fastapi import APIRouter, HTTPException, UploadFile, Header
 from controllers.ats_controller import process_ats
-from models.ats_model import ATSRequest, ATSResponse
+from models.ats_model import ATSResponse
 
 router = APIRouter(
     prefix="/ats",
@@ -8,14 +8,20 @@ router = APIRouter(
 )
 
 @router.post("/score", response_model=ATSResponse)
-def ats_score(file: UploadFile, job_description: str):
+def ats_score(file: UploadFile, job_description: str = Header(None)):
     """
-    Calculate ATS score based on resume and job description.
+    Calculate ATS score based on resume and job description provided in the header.
     """
     try:
+        # Validate file type
         if file.content_type != "application/pdf":
             raise HTTPException(status_code=400, detail="Only PDF files are supported.")
-          # Process the ATS logic
+        
+        # Validate job description
+        if not job_description:
+            raise HTTPException(status_code=400, detail="Job description header is required.")
+        
+        # Process the ATS logic
         result = process_ats(file, job_description)
         
         return result

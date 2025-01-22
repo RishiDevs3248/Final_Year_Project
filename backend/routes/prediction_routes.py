@@ -3,16 +3,12 @@ from fastapi import APIRouter, HTTPException
 from models.prediction_model import SkillPredictionRequest
 from controllers.prediction_controller import predict_skills_controller
 
-# Load the trained Random Forest model
-model = joblib.load("skill_extractor/random_forest_model.pkl")
-
-
 router = APIRouter(
     prefix="/predict",
     tags=["Model Prediction"],
 )
 
-@router.post("/predict")
+@router.post("/")
 async def predict_skills(request: SkillPredictionRequest):
     """
     Route to predict skills based on user input.

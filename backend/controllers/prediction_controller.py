@@ -4,6 +4,6 @@ def predict_skills_controller(skills):
     """
     Controller logic for skill prediction.
     """
-    skills_str = " ".join(skills)  # Convert list of skills to a single string
+    skills_str = ' '.join(skill.lower() for skill in skills)  # Convert list of skills to a single string
     prediction = predict_label(skills_str)  # Call the model's predict function
     return {"predicted_label": prediction}

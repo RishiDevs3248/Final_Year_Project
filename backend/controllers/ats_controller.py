@@ -45,7 +45,7 @@ def calculate_ats_score_using_llama(resume_text: str, job_description: str) -> d
     prompt = (
         f"Compare the following resume and job description, then calculate an ATS score. "
         f"The response must be JSON-formatted with keys: ats_score (percentage as float),No additional text or explanation should be included. Just a plain JSON object with the score. with the text as is he qualified for the job or not."
-        # f"and suggestions (a list of strings). No additional text or explanation should be included.\n\n"
+        f"No additional text or explanation should be included.\n\n"
         f"Resume:\n{resume_text}\n\nJob Description:\n{job_description}"
     )
 
