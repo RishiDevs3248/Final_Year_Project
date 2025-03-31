@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UploadPage from './Pages/UploadPage';
 import TestPage from './Pages/TestPage';
 import ResourcesPage from './Pages/ResourcesPage';
+import Landingpage from './Pages/LandingPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<UploadPage />} />
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/upload" element={<UploadPage />} />
         <Route path="/test" element={<TestPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
       </Routes>
