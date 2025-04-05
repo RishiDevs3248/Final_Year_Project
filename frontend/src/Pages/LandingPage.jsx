@@ -7,6 +7,8 @@ export default function Landingpage() {
             <div style={{ backgroundColor: "#BD94F0", height: "calc(100% - 150px)", width: "calc(100% - 150px)", padding: "75px" ,borderRadius: "20px"}}>
                 <div style={{ backgroundColor: "#fff", height: "100%", width: "100%", borderRadius: "20px" , position:"relative"}}>
                     <button style={{position:"absolute",bottom:"0px"}} onClick={() => navigate("/upload")}>Get Started</button>
+                    <button style={{position:"absolute",bottom:"0px"}} onClick={() => navigate("/upload")}>Get Started</button>
+                    <button style={{position:"absolute",bottom:"0px"}} onClick={() => navigate("/upload")}>Get Started</button>
                 </div>
             </div>
         </div>
