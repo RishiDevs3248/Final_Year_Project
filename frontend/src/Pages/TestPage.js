@@ -100,6 +100,7 @@ const TestPage = () => {
                 backgroundColor: "#fff", // 1st white 
                 minHeight: "100vh",
                 minWidth: "100vw",
+                height: "100%",
                 padding: "15px",
                 boxSizing: "border-box"
             }}>
@@ -112,25 +113,36 @@ const TestPage = () => {
                     boxSizing: "border-box"
                 }}>
                     <div style={{
-                        backgroundColor: "#fff", // 3rd white 
+                        backgroundColor: "#fff",
                         width: "100%",
                         minHeight: "calc(100vh - 185px)",
                         borderRadius: "20px",
                         position: "relative",
                         overflow: "auto",
-                        boxSizing: "border-box"
+                        boxSizing: "border-box",
+                        display: "flex",
+                        flexDirection: "column"
                     }}>
-                        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-                            <CircularProgress />
-                            {/* Skeletion added here */}
-                            <Skeleton variant="text" width={200} />
-                            <Skeleton variant="rectangular" height={100} />
-                            <Skeleton variant="circular" width={40} height={40} />
-                            <Typography variant="h6" style={{ marginTop: '10px' }}>
-                                Loading questions...
-                            </Typography>
+                        <div
+                            style={{
+                                textAlign: 'center',
+                                display: "flex",
+                                flexDirection: "row",
+                                justifyContent: "center",
+                                flex: 1, // This is key to fill remaining height!
+                            }}
+                        >
+                            <div style={{ backgroundColor: "gray", padding: "20px", borderRadius: "12px" , width:"80%"}}>
+                                <Skeleton variant="text" width={200} height={70} />
+                                <Skeleton variant="rectangular" height={100} />
+                                <Skeleton variant="circular" width={40} height={40} />
+                                <Typography variant="h6" style={{ marginTop: '10px' }}>
+                                    Loading questions...
+                                </Typography>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         );
