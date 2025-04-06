@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation,useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Accordion,
     AccordionSummary,
@@ -13,6 +13,7 @@ import {
     FormControlLabel,
     Button,
     CircularProgress,
+    Skeleton,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -93,92 +94,186 @@ const TestPage = () => {
         setResult(categoryScores); // Store category-wise results
     };
 
-    if (!questions) {
+    if (!questions) {   // Loading on hold 
         return (
-            <div style={{ textAlign: 'center', marginTop: '50px' }}>
-                <CircularProgress />
-                <Typography variant="h6" style={{ marginTop: '10px' }}>
-                    Loading questions...
-                </Typography>
+            <div style={{
+                backgroundColor: "#fff", // 1st white 
+                minHeight: "100vh",
+                minWidth: "100vw",
+                padding: "15px",
+                boxSizing: "border-box"
+            }}>
+                <div style={{
+                    backgroundColor: "#BD94F0",  //2nd purple 
+                    minHeight: "calc(100vh - 30px)",
+                    minWidth: "calc(100vw - 30px)",
+                    padding: "75px",
+                    borderRadius: "20px",
+                    boxSizing: "border-box"
+                }}>
+                    <div style={{
+                        backgroundColor: "#fff", // 3rd white 
+                        width: "100%",
+                        minHeight: "calc(100vh - 185px)",
+                        borderRadius: "20px",
+                        position: "relative",
+                        overflow: "auto",
+                        boxSizing: "border-box"
+                    }}>
+                        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                            <CircularProgress />
+                            {/* Skeletion added here */}
+                            <Skeleton variant="text" width={200} />
+                            <Skeleton variant="rectangular" height={100} />
+                            <Skeleton variant="circular" width={40} height={40} />
+                            <Typography variant="h6" style={{ marginTop: '10px' }}>
+                                Loading questions...
+                            </Typography>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
 
     return (
-        <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-            <Typography variant="h4" gutterBottom>
-                Skill Test
-            </Typography>
-            {Object.keys(questions).map((section) => (
-                <Accordion key={section}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        <Typography variant="h6">{section}</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        {questions[section].map((questionData, questionIndex) => (
-                            <Card key={questionIndex} style={{ marginBottom: '15px' }}>
-                                <CardContent>
-                                    <Typography variant="body1" gutterBottom>
-                                        {`${questionIndex + 1}. ${questionData.question}`}
-                                    </Typography>
-                                    <RadioGroup
-                                        value={answers[section]?.[questionIndex] || ''}
-                                        onChange={(e) =>
-                                            handleAnswerChange(section, questionIndex, e.target.value)
-                                        }
-                                    >
-                                        {questionData.options.map((option, optionIndex) => (
-                                            <FormControlLabel
-                                                key={optionIndex}
-                                                value={option}
-                                                control={<Radio />}
-                                                label={option}
-                                            />
-                                        ))}
-                                    </RadioGroup>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </AccordionDetails>
-                </Accordion>
-            ))}
-            <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSubmit}
-                style={{ marginTop: '20px' }}
-            >
-                Submit
-            </Button>
-            <Button
-                variant="outlined"
-                color="secondary"
-                onClick={handleRedirectToResources}
-                style={{ marginTop: '20px', marginLeft: '10px' }}
-            >
-                View Resources
-            </Button>
-            {result && (
-                <div style={{ marginTop: '20px' }}>
-                    <Typography variant="h5" gutterBottom>
-                        Your Results:
-                    </Typography>
-                    {Object.keys(result).map((section) => (
-                        <Typography key={section} variant="h6" style={{ marginBottom: '10px' }}>
-                            {`${section}: ${result[section]} / ${questions[section].length}`}
+
+        <div style={{
+            backgroundColor: "#fff", // 1st white 
+            minHeight: "100vh",
+            minWidth: "100vw",
+            padding: "15px",
+            boxSizing: "border-box"
+        }}>
+            <div style={{
+                backgroundColor: "#BD94F0",  //2nd purple 
+                minHeight: "calc(100vh - 30px)",
+                minWidth: "calc(100vw - 30px)",
+                padding: "75px",
+                borderRadius: "20px",
+                boxSizing: "border-box"
+            }}>
+                <div style={{
+                    backgroundColor: "#fff", // 3rd white 
+                    width: "100%",
+                    minHeight: "calc(100vh - 185px)",
+                    borderRadius: "20px",
+                    position: "relative",
+                    overflow: "auto",
+                    boxSizing: "border-box"
+                }}>
+                    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+                        <Typography variant="h4" gutterBottom>
+                            Skill Test
                         </Typography>
-                    ))}
-                    <Button
-                        variant="outlined"
-                        color="secondary"
-                        onClick={handleRedirectToResources}
-                        style={{ marginTop: '20px', marginLeft: '10px' }}
-                    >
-                        View Resources
-                    </Button>
+                        {Object.keys(questions).map((section) => (
+                            // Whole body Ç
+                            <Accordion key={section} style={{
+                                border: "1px solid black",
+                                borderRadius: "12px",
+                                marginBottom: "12px",
+                                boxShadow: "none",
+                                '&::before': {
+                                    display: 'none', // or backgroundColor: '#ff5834' if you still want to show it
+                                    backgroundColor: '#ff5834',
+                                }
+                            }}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                    {/* Your main topic name */}
+                                    <Typography variant="h6" style={{ color: "#000" }} >{section}</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails >
+                                    {questions[section].map((questionData, questionIndex) => (
+                                        <Card key={questionIndex} style={{
+                                            marginBottom: '15px',
+                                            boxShadow: "none",
+                                            border: "0.8px solid black",
+                                            borderRadius: "12px",
+                                        }}>
+                                            {/* Each Que Card */}
+                                            <CardContent >
+                                                <Typography variant="body1" gutterBottom>
+                                                    {`${questionIndex + 1}. ${questionData.question}`}
+                                                </Typography>
+                                                <RadioGroup
+                                                    value={answers[section]?.[questionIndex] || ''}
+                                                    onChange={(e) =>
+                                                        handleAnswerChange(section, questionIndex, e.target.value)
+                                                    }
+                                                >
+                                                    {questionData.options.map((option, optionIndex) => (
+                                                        <FormControlLabel
+                                                            key={optionIndex}
+                                                            value={option}
+                                                            control={<Radio />}
+                                                            label={option}
+                                                        />
+                                                    ))}
+                                                </RadioGroup>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </AccordionDetails>
+                            </Accordion>
+                        ))}
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            // fullWidth
+                            sx={{
+                                mt: 3,
+                                backgroundColor: "#ff5834",
+                                borderRadius: "12px",
+                                '&:hover': {
+                                    backgroundColor: "#e14c2d" // slightly darker shade for hover effect
+                                }
+                            }}
+                            disabled={false}
+                            onClick={handleSubmit}
+                            style={{ marginTop: '20px' }}
+                        >
+                            Submit
+                        </Button>
+                        {/* <Button
+                            variant="outlined"
+                            color="secondary"
+                            sx={{
+                                mt: 3,
+                                borderRadius: "12px"
+                            }}
+                            onClick={handleRedirectToResources}
+                            style={{ marginTop: '20px', marginLeft: '10px' }}
+                        >
+                            View Resources
+                        </Button> */}
+                        {result && (
+                            <div style={{ marginTop: '20px' }}>
+                                <Typography variant="h5" gutterBottom>
+                                    Your Results:
+                                </Typography>
+                                {Object.keys(result).map((section) => (
+                                    <Typography key={section} variant="h6" style={{ marginBottom: '10px' }}>
+                                        {`${section}: ${result[section]} / ${questions[section].length}`}
+                                    </Typography>
+                                ))}
+                                <Button
+                                    variant="outlined"
+                                    color="secondary"
+                                    sx={{
+                                        mt: 3,
+                                        borderRadius: "12px",
+                                    }}
+                                    onClick={handleRedirectToResources}
+                                    style={{ marginTop: '20px' }}
+                                >
+                                    View Resources
+                                </Button>
+                            </div>
+
+                        )}
+                    </div>
                 </div>
-                
-            )}
+            </div>
         </div>
     );
 };

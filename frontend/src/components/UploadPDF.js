@@ -12,7 +12,7 @@ import {
     Grid,
     TextField,
 } from "@mui/material";
-import { styled } from "@mui/system";
+import { flexbox, styled } from "@mui/system";
 
 const Dropzone = styled(Paper)(({ isDragging }) => ({
     border: `2px dashed ${isDragging ? "#1976d2" : "#ccc"}`,
@@ -141,7 +141,7 @@ const UploadPDF = () => {
     return (
         <Box sx={{ p: 4 }}>
             <Typography variant="h4" sx={{ mb: 3, textAlign: "center" }}>
-                Upload PDF to Extract Skills, Predict Position and Calculate ATS Score
+                Upload PDF
             </Typography>
             <Grid container justifyContent="center" alignItems="center">
                 <Grid item xs={12} md={6}>
@@ -151,6 +151,9 @@ const UploadPDF = () => {
                         onDragLeave={handleDragLeave}
                         onDrop={handleDrop}
                         onClick={() => document.getElementById("fileInput").click()}
+                        sx={{
+                            borderRadius: "12px"
+                        }}
                     >
                         <Typography variant="body1" sx={{ mb: 2 }}>
                             Drag and drop a PDF file here, or click to select a file
@@ -172,18 +175,34 @@ const UploadPDF = () => {
                         rows={4}
                         value={jobDescription}
                         onChange={(e) => setJobDescription(e.target.value)}
-                        sx={{ mt: 3 }}
+                        sx={{
+                            mt: 3,
+                            '& .MuiOutlinedInput-root': {
+                                borderRadius: '12px'
+                            }
+                        }}
                     />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        fullWidth
-                        sx={{ mt: 3 }}
-                        onClick={handleAtsScore}
-                        disabled={loading}
-                    >
-                        {loading ? <CircularProgress size={24} /> : "Extract Skills, Predict Position and Calculate ATS Score"}
-                    </Button>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            // fullWidth
+                            sx={{
+                                mt: 3,
+                                backgroundColor: "#ff5834",
+                                borderRadius: "12px",
+                                '&:hover': {
+                                    backgroundColor: "#e14c2d" // slightly darker shade for hover effect
+                                },
+                                paddingTop: "7px",
+                                paddingBottom: "7px",
+                            }}
+                            onClick={handleAtsScore}
+                            disabled={loading}
+                        >
+                            {loading ? <CircularProgress size={24} /> : "Analyze Resume"}
+                        </Button>
+                    </div>
                 </Grid>
             </Grid>
             {atsScore !== null && (
@@ -218,7 +237,10 @@ const UploadPDF = () => {
             <Button
                 variant="outlined"
                 color="secondary"
-                sx={{ mt: 3 }}
+                sx={{
+                    mt: 3,
+                    borderRadius: "12px"
+                }}
                 onClick={handleGoToTestPage}
                 disabled={skills.length === 0}
             >
