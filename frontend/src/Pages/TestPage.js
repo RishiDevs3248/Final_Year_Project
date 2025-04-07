@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -25,12 +25,18 @@ const TestPage = () => {
     const [result, setResult] = useState(null);
     const navigate = useNavigate();
 
+    // console.log("-------------------------------------------------------------------------------------------")
+    // console.log(skills)
+    // console.log("-------------------------------------------------------------------------------------------")
+    // console.log(skills.length)
+    // console.log("-------------------------------------------------------------------------------------------")
     // Helper function to sanitize options
     const sanitizeOptions = (options) => {
         return options
             .map((option) => option.trim().replace(/\s+/g, ' ')) // Trim and replace extra spaces
             .filter((option) => option !== ''); // Remove empty options
     };
+
 
     useEffect(() => {
         const fetchQuestions = async () => {
@@ -81,6 +87,7 @@ const TestPage = () => {
     };
 
     const handleSubmit = () => {
+        console.log("called inside handle submit")
         const categoryScores = {};
         Object.keys(questions).forEach((section) => {
             let score = 0;
@@ -91,8 +98,11 @@ const TestPage = () => {
             });
             categoryScores[section] = score; // Store score for each section
         });
-        setResult(categoryScores); // Store category-wise results
+        setResult(categoryScores);  // Store category-wise results
+        return 0 ;
     };
+
+
 
     if (!questions) {   // Loading on hold 
         return (
@@ -132,7 +142,7 @@ const TestPage = () => {
                                 flex: 1, // This is key to fill remaining height!
                             }}
                         >
-                            <div style={{ backgroundColor: "gray", padding: "20px", borderRadius: "12px" , width:"80%"}}>
+                            <div style={{ backgroundColor: "gray", padding: "20px", borderRadius: "12px", width: "80%" }}>
                                 <Skeleton variant="text" width={200} height={70} />
                                 <Skeleton variant="rectangular" height={100} />
                                 <Skeleton variant="circular" width={40} height={40} />
@@ -148,6 +158,47 @@ const TestPage = () => {
         );
     }
 
+    function DelayedSubmit({ skills, handleSubmit }) {
+        const initialTime = useRef(skills.length * 1); // total seconds once
+        const [timeLeft, setTimeLeft] = useState(initialTime.current);
+    
+        useEffect(() => {
+            const timer = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev == 0) {
+                        clearInterval(timer);
+                        handleSubmit()
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+    
+            return () => clearInterval(timer);
+        }, [handleSubmit]);
+    
+        const formatTime = (seconds) => {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, "0")}:${secs
+                .toString()
+                .padStart(2, "0")}`;
+        };
+    
+        return (
+            <div>
+                <h3>Auto-submitting in: {formatTime(timeLeft)}</h3>
+            </div>
+        );
+    }
+
+
+
+    // if (questions) {
+    //     console.log(2 * skills.length + " minutes for test")
+    //     // setTimeout(handleSubmit, 120000 * skills.length);
+    //     setTimeout(handleSubmit, 10000 * skills.length);
+    // }
     return (
 
         <div style={{
@@ -175,6 +226,9 @@ const TestPage = () => {
                     boxSizing: "border-box"
                 }}>
                     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
+                        <div>
+                            <DelayedSubmit skills={skills} handleSubmit={handleSubmit} />
+                        </div>
                         <Typography variant="h4" gutterBottom>
                             Skill Test
                         </Typography>
