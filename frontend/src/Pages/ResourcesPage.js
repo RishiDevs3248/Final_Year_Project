@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Typography, List, ListItem, Button, AccordionDetails, Card } from '@mui/material';
+import { Typography, List, ListItem, Button, Card } from '@mui/material';
 
 const ResourcesPage = () => {
     const location = useLocation();
@@ -47,7 +47,7 @@ const ResourcesPage = () => {
                         borderRadius: "12px",
                         padding: "12px"
                     }}>
-                        {skillResources.Documentation && (
+                        {(skillResources.Documentation && (
                             <>
                                 <Typography variant="h6">Documentation:</Typography>
                                 {skillResources.Documentation.map((doc, index) => (
@@ -58,7 +58,7 @@ const ResourcesPage = () => {
                                     </ListItem>
                                 ))}
                             </>
-                        ) || skillResources.Frameworks && (
+                        )) || (skillResources.Frameworks && (
                             <>
                                 <Typography variant="h6">Frameworks:</Typography>
                                 {skillResources.Frameworks.map((doc, index) => (
@@ -69,7 +69,7 @@ const ResourcesPage = () => {
                                     </ListItem>
                                 ))}
                             </>
-                        ) || skillResources.Tools && (
+                        )) || (skillResources.Tools && (
                             <>
                                 <Typography variant="h6">Tools:</Typography>
                                 {skillResources.Tools.map((doc, index) => (
@@ -80,7 +80,7 @@ const ResourcesPage = () => {
                                     </ListItem>
                                 ))}
                             </>
-                        ) || skillResources.Services && (
+                        )) || (skillResources.Services && (
                             <>
                                 <Typography variant="h6">Services:</Typography>
                                 {skillResources.Services.map((doc, index) => (
@@ -91,7 +91,7 @@ const ResourcesPage = () => {
                                     </ListItem>
                                 ))}
                             </>
-                        )}
+                        ))}
 
                     </Card>
 

@@ -12,7 +12,7 @@ import {
     Grid,
     TextField,
 } from "@mui/material";
-import { flexbox, styled } from "@mui/system";
+import { styled } from "@mui/system";
 
 const Dropzone = styled(Paper)(({ isDragging }) => ({
     border: `2px dashed ${isDragging ? "#1976d2" : "#ccc"}`,
@@ -54,27 +54,27 @@ const UploadPDF = () => {
     };
 
 
-    const handleUpload = async () => {
-        if (!file) {
-            alert("Please upload a file.");
-            return;
-        }
+    // const handleUpload = async () => {
+    //     if (!file) {
+    //         alert("Please upload a file.");
+    //         return;
+    //     }
 
-        setLoading(true);
-        const formData = new FormData();
-        formData.append("file", file);
+    //     setLoading(true);
+    //     const formData = new FormData();
+    //     formData.append("file", file);
 
-        try {
-            const response = await axios.post("http://localhost:8000/skills/extract", formData, {
-                headers: { "Content-Type": "multipart/form-data" },
-            });
-            setSkills(response.data.skills);
-        } catch (error) {
-            console.error("Error extracting skills:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    //     try {
+    //         const response = await axios.post("http://localhost:8000/skills/extract", formData, {
+    //             headers: { "Content-Type": "multipart/form-data" },
+    //         });
+    //         setSkills(response.data.skills);
+    //     } catch (error) {
+    //         console.error("Error extracting skills:", error);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     const handleAtsScore = async () => {
         if (!file || !jobDescription.trim()) {
@@ -224,133 +224,155 @@ const UploadPDF = () => {
                     </div>
                 </Grid>
             </Grid>
-            {atsScore !== null && (
-                // <Box sx={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', mt: 2 ,backgroundColor:"red" , }}>
-                //     <Typography variant="h6" sx={{ mt: 1 }}>
-                //         ATS Score
-                //     </Typography>
-                //     <CircularProgress
-                //         variant="determinate"
-                //         value={atsScore}
-                //         size={150} // 👈 bigger size
-                //         thickness={5}
-                //         sx={{
-                //             color: '#BD94F0', // 👈 custom color
-                //         }}
-                //     />
-                //     <Box
-                //         sx={{
-                //             top: 0,
-                //             left: 0,
-                //             bottom: 0,
-                //             right: 0,
-                //             paddingTop: "40px",
-                //             position: 'absolute',
-                //             display: 'flex',
-                //             alignItems: 'center',
-                //             justifyContent: 'center',
-                //         }}
-                //     >
-                //         <Typography variant="h5" component="div" color="text.primary">
-                //             {`${atsScore}%`}
-                //         </Typography>
-                //     </Box>
-                // </Box>
 
-                <Box
-                    sx={{
-                        position: 'relative',
-                        display: 'inline-flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        mt: 2,
-                        // Box style 
-                        border:"1px solid black",
-                    }}
-                >
-                    <Typography variant="h6" sx={{ mt: 1 }}>
-                        ATS Score
-                    </Typography>
 
-                    {/* Container for the Circular Progress */}
-                    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-                        {/* Background black circle */}
-                        <CircularProgress
-                            variant="determinate"
-                            value={100}
-                            size={150}
-                            thickness={5}
-                            sx={{
-                                color: '#808080',
-                                // color: '#000',
-                                position: 'absolute',
-                            }}
-                        />
+            {/* three Box flex design --------------------------------------------------------------------------------- */}
+            <Box sx={{
+                display:"flex",
+                justifyContent: "space-around"
+            }}>
+                {atsScore !== null && (
+                    // <Box sx={{ position: 'relative', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', mt: 2 ,backgroundColor:"red" , }}>
+                    //     <Typography variant="h6" sx={{ mt: 1 }}>
+                    //         ATS Score
+                    //     </Typography>
+                    //     <CircularProgress
+                    //         variant="determinate"
+                    //         value={atsScore}
+                    //         size={150} // 👈 bigger size
+                    //         thickness={5}
+                    //         sx={{
+                    //             color: '#BD94F0', // 👈 custom color
+                    //         }}
+                    //     />
+                    //     <Box
+                    //         sx={{
+                    //             top: 0,
+                    //             left: 0,
+                    //             bottom: 0,
+                    //             right: 0,
+                    //             paddingTop: "40px",
+                    //             position: 'absolute',
+                    //             display: 'flex',
+                    //             alignItems: 'center',
+                    //             justifyContent: 'center',
+                    //         }}
+                    //     >
+                    //         <Typography variant="h5" component="div" color="text.primary">
+                    //             {`${atsScore}%`}
+                    //         </Typography>
+                    //     </Box>
+                    // </Box>
 
-                        {/* Foreground purple progress */}
-                        <CircularProgress
-                            variant="determinate"
-                            value={atsScore}
-                            size={150}
-                            thickness={5}
-                            sx={{
-                                color: '#BD94F0',
-                                '& .MuiCircularProgress-circle': {
-                                    strokeLinecap: 'round', // 👈 this makes the end rounded
-                                }
-                            }}
-                        />
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            display: 'inline-flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            mt: 2,
+                            // Box style 
+                            border: "2px solid #808080",
+                            padding: "20px",
+                            borderRadius: "12px",
+                        }}
+                    >
+                        <Typography variant="h6" sx={{ mt: 1 }}>
+                            ATS Score
+                        </Typography>
 
-                        {/* Percentage text inside circle */}
-                        <Box
-                            sx={{
-                                top: 0,
-                                left: 0,
-                                bottom: 0,
-                                right: 0,
-                                position: 'absolute',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <Typography variant="h5" component="div" color="text.primary">
-                                {`${atsScore}%`}
-                            </Typography>
+                        {/* Container for the Circular Progress */}
+                        <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+                            {/* Background black circle */}
+                            <CircularProgress
+                                variant="determinate"
+                                value={100}
+                                size={150}
+                                thickness={5}
+                                sx={{
+                                    color: '#808080',
+                                    // color: '#000',
+                                    position: 'absolute',
+                                }}
+                            />
+
+                            {/* Foreground purple progress */}
+                            <CircularProgress
+                                variant="determinate"
+                                value={atsScore}
+                                size={150}
+                                thickness={5}
+                                sx={{
+                                    color: '#BD94F0',
+                                    '& .MuiCircularProgress-circle': {
+                                        strokeLinecap: 'round', // 👈 this makes the end rounded
+                                    }
+                                }}
+                            />
+
+                            {/* Percentage text inside circle */}
+                            <Box
+                                sx={{
+                                    top: 0,
+                                    left: 0,
+                                    bottom: 0,
+                                    right: 0,
+                                    position: 'absolute',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Typography variant="h5" component="div" color="text.primary">
+                                    {`${atsScore}%`}
+                                </Typography>
+                            </Box>
                         </Box>
                     </Box>
-                </Box>
 
 
-                // <Box sx={{ mt: 4 }}>
-                //     <Typography variant="h5">
-                //         ATS Score: <strong>{atsScore}%</strong>
-                //         <CircularProgress variant="determinate" value={atsScore} />
-                //     </Typography>
-                // </Box>
-            )}
-            {skills.length > 0 && (
-                <Box sx={{ mt: 4 }}>
-                    <Typography variant="h5" gutterBottom>
-                        Extracted Skills:
-                    </Typography>
-                    <List>
-                        {skills.map((skill, index) => (
-                            <ListItem key={index} sx={{ p: 0, ml: 2 }}>
-                                - {skill}
-                            </ListItem>
-                        ))}
-                    </List>
-                </Box>
-            )}
-            {predictedCategory && (
-                <Box sx={{ mt: 4 }}>
-                    <Typography variant="h5" gutterBottom>
-                        Predicted Category:
-                    </Typography>
-                    <Typography variant="body1">{predictedCategory}</Typography>
-                </Box>
-            )}
+                    // <Box sx={{ mt: 4 }}>
+                    //     <Typography variant="h5">
+                    //         ATS Score: <strong>{atsScore}%</strong>
+                    //         <CircularProgress variant="determinate" value={atsScore} />
+                    //     </Typography>
+                    // </Box>
+                )}
+                {skills.length > 0 && (
+                    <Box sx={{
+                        mt: 4,
+                        // Box style 
+                        border: "2px solid #808080",
+                        padding: "20px",
+                        borderRadius: "12px",
+                    }}>
+                        <Typography variant="h5" gutterBottom>
+                            Extracted Skills:
+                        </Typography>
+                        <List>
+                            {skills.map((skill, index) => (
+                                <ListItem key={index} sx={{ p: 0, ml: 2 }}>
+                                    - {skill}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Box>
+                )}
+                {predictedCategory && (
+                    <Box sx={{
+                        mt: 4,
+                        // Box style 
+                        border: "2px solid #808080",
+                        padding: "20px",
+                        borderRadius: "12px",
+                    }}>
+                        <Typography variant="h5" gutterBottom>
+                            Predicted Category:
+                        </Typography>
+                        <Typography variant="body1">{predictedCategory}</Typography>
+                    </Box>
+                )}
+            </Box>
             <Button
                 variant="outlined"
                 color="secondary"

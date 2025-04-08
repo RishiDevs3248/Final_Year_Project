@@ -203,5 +203,391 @@
             "https://stackoverflow.com/",
             "https://www.reddit.com/r/ruby/"
         ]
-    }
+    },
+    "SQL": {
+        "Platforms": [
+            "https://www.codecademy.com/learn/learn-sql",
+            "https://www.sqlcourse.com/",
+            "https://sqlzoo.net/",
+            "https://www.w3schools.com/sql/",
+            "https://www.khanacademy.org/computing/computer-programming/sql"
+        ],
+        "Documentation": [
+            "https://dev.mysql.com/doc/",
+            "https://docs.microsoft.com/en-us/sql/sql-server/",
+            "https://www.postgresql.org/docs/"
+        ],
+        "Practice": [
+            "https://www.hackerrank.com/domains/sql",
+            "https://leetcode.com/problemset/database/",
+            "https://www.sql-ex.ru/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/SQL/"
+        ]
+    },
+    "DevOps": {
+        "Platforms": [
+            "https://www.edx.org/course/introduction-to-devops",
+            "https://www.coursera.org/specializations/devops",
+            "https://www.udemy.com/course/devops-tutorial/"
+        ],
+        "Tools": [
+            "https://www.docker.com/",
+            "https://kubernetes.io/",
+            "https://www.jenkins.io/"
+        ],
+        "Practice": [
+            "https://www.katacoda.com/courses/devops",
+            "https://www.hands-on.cloud/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/devops/"
+        ]
+    },
+    "Machine Learning": {
+        "Platforms": [
+            "https://www.coursera.org/learn/machine-learning",
+            "https://www.udacity.com/course/intro-to-machine-learning--ud120",
+            "https://www.edx.org/course/machine-learning"
+        ],
+        "Frameworks": [
+            "https://www.tensorflow.org/",
+            "https://pytorch.org/",
+            "https://scikit-learn.org/stable/"
+        ],
+        "Practice": [
+            "https://www.kaggle.com/",
+            "https://www.hackerearth.com/challenges/competitive/machine-learning/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/MachineLearning/"
+        ]
+    },
+    "Cybersecurity": {
+        "Platforms": [
+            "https://www.cybrary.it/",
+            "https://www.coursera.org/specializations/it-security",
+            "https://www.udemy.com/course/the-complete-cyber-security-course/"
+        ],
+        "Tools": [
+            "https://www.wireshark.org/",
+            "https://www.kali.org/",
+            "https://nmap.org/"
+        ],
+        "Practice": [
+            "https://www.hackthebox.eu/",
+            "https://www.root-me.org/",
+            "https://overthewire.org/wargames/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/cybersecurity/"
+        ]
+    },
+    "Web Development": {
+        "Platforms": [
+            "https://www.freecodecamp.org/",
+            "https://www.theodinproject.com/",
+            "https://www.codecademy.com/catalog/all"
+        ],
+        "Documentation": [
+            "https://developer.mozilla.org/en-US/",
+            "https://www.w3.org/"
+        ],
+        "Practice": [
+            "https://www.frontendmentor.io/",
+            "https://exercism.io/tracks/javascript"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/webdev/"
+        ]
+    },
+    "Mobile App Development": {
+        "Platforms": [
+            "https://developer.android.com/courses",
+            "https://developer.apple.com/learn/curriculum/"
+        ],
+        "Frameworks": [
+            "https://flutter.dev/",
+            "https://reactnative.dev/",
+            "https://developer.android.com/studio"
+        ],
+        "Practice": [
+            "https://www.udemy.com/course/ios-13-app-development-bootcamp/",
+            "https://www.udemy.com/course/the-complete-android-10-developer-course/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/androiddev/",
+            "https://www.reddit.com/r/iOSProgramming/"
+        ]
+    },
+    "Artificial Intelligence": {
+        "Platforms": [
+            "https://www.coursera.org/learn/ai-for-everyone",
+            "https://www.edx.org/course/artificial-intelligence-ai",
+            "https://www.udacity.com/course/intro-to-artificial-intelligence--cs271"
+        ],
+        "Frameworks": [
+            "https://www.tensorflow.org/",
+            "https://pytorch.org/",
+            "https://keras.io/"
+        ],
+        "Practice": [
+            "https://www.kaggle.com/",
+            "https://www.hackerearth.com/challenges/competitive/artificial-intelligence/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/artificial/"
+        ]
+    },
+    "Blockchain": {
+        "Platforms": [
+            "https://www.coursera.org/specializations/blockchain",
+            "https://www.edx.org/course/blockchain-fundamentals",
+            "https://www.udemy.com/course/blockchain-and-cryptocurrency-explained/"
+        ],
+        "Documentation": [
+            "https://ethereum.org/en/developers/docs/",
+            "https://bitcoin.org/en/developer-documentation"
+        ],
+        "Practice": [
+            "https://cryptozombies.io/",
+            "https://www.dappuniversity.com/articles/ethereum-dapp-tutorial"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/blockchain/"
+        ]
+    },
+    "UI/UX Design": {
+        "Platforms": [
+            "https://www.coursera.org/specializations/ui-ux-design",
+            "https://www.edx.org/course/introduction-to-user-experience",
+            "https://www.udemy.com/course/ui-ux-design-principles/"
+        ],
+        "Tools": [
+            "https://www.adobe.com/products/xd.html",
+            "https://www.sketch.com/",
+            "https://www.figma.com/"
+        ],
+        "Practice": [
+            "https://www.uxtools.co/challenges",
+            "https://www.dailyui.co/"
+        ],
+        "Community": [
+            "https://www.reddit.com/r/userexperience/",
+            "https://www.reddit.com/r/UXDesign/"
+        ]
+    },
+    "Networking": {
+        "Platforms": [
+            "https://www.coursera.org/specializations/computer-networking",
+            "https://www.edx.org/course/introduction-to-computer-networking",
+            "https://www.udemy.com/course/the-complete-networking-fundamentals-course/"
+        ],
+        "Documentation": [
+            "https://www.cisco.com/c/en/us/support/index.html",
+            "https://learn.microsoft.com/en-us/windows-server/networking/",
+            "https://www.geeksforgeeks.org/basics-computer-networking/"
+        ],
+        "Practice": [
+            "https://netacad.com/",
+            "https://nmap.org/book/",
+            "https://www.hackthebox.com/"
+        ],
+        "Community": [
+            "https://stackoverflow.com/",
+            "https://www.reddit.com/r/networking/"
+        ]
+    },
+    "Emotional Intelligence": {
+        "Platforms": [
+          "https://www.coursera.org/learn/emotional-intelligence",
+          "https://www.udemy.com/course/emotional-intelligence-at-work/",
+          "https://www.edx.org/course/developing-your-emotional-intelligence"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/26329.Emotional_Intelligence",
+          "https://www.amazon.com/Emotional-Intelligence-2-0-Travis-Bradberry/dp/0974320625"
+        ],
+        "Practice": [
+          "https://greatergood.berkeley.edu/quizzes/take_quiz/emotional_intelligence",
+          "https://www.skillsyouneed.com/ps/emotional-intelligence.html"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/emotionalintelligence/",
+          "https://www.linkedin.com/groups/12930299/"
+        ]
+      },
+      "Resume Writing": {
+        "Platforms": [
+          "https://www.coursera.org/learn/resume-writing",
+          "https://resumegenius.com/",
+          "https://zety.com/resume-builder"
+        ],
+        "Templates": [
+          "https://novoresume.com/",
+          "https://www.canva.com/resumes/"
+        ],
+        "Practice": [
+          "https://resumeworded.com/",
+          "https://enhancv.com/resume-check/"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/resumes/",
+          "https://www.linkedin.com/groups/3851283/"
+        ]
+      },
+      "Interview Preparation": {
+        "Platforms": [
+          "https://www.pramp.com/",
+          "https://interviewing.io/",
+          "https://www.coursera.org/learn/interview-preparation"
+        ],
+        "Guides": [
+          "https://www.indeed.com/career-advice/interviewing",
+          "https://www.glassdoor.com/Interview/index.htm"
+        ],
+        "Practice": [
+          "https://leetcode.com/interview/",
+          "https://careercup.com/"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/cscareerquestions/",
+          "https://www.linkedin.com/groups/74194/"
+        ]
+      },
+      "Time Management": {
+        "Platforms": [
+          "https://www.coursera.org/learn/work-smarter-not-harder",
+          "https://www.udemy.com/course/productivity-and-time-management-for-the-overwhelmed/",
+          "https://todoist.com/productivity-methods"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/387024.Time_Management_for_System_Administrators",
+          "https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0142000280"
+        ],
+        "Practice": [
+          "https://pomofocus.io/",
+          "https://www.rescuetime.com/"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/productivity/",
+          "https://www.linkedin.com/groups/85659/"
+        ]
+      },
+      "Problem Solving": {
+        "Platforms": [
+          "https://www.coursera.org/learn/problem-solving",
+          "https://www.edx.org/course/problem-solving-and-critical-thinking-skills"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/9441.How_to_Solve_It",
+          "https://www.amazon.com/Think-Smart-Problem-Solving-Critical/dp/1956519102"
+        ],
+        "Practice": [
+          "https://brilliant.org/",
+          "https://www.rasmussen.edu/student-experience/college-life/critical-thinking-skills-to-succeed/"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/problem_solving/",
+          "https://www.linkedin.com/groups/74184/"
+        ]
+      },
+      "Creativity": {
+        "Platforms": [
+          "https://www.coursera.org/learn/creative-thinking",
+          "https://www.skillshare.com/browse/creativity"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/7624.Steal_Like_an_Artist",
+          "https://www.amazon.com/Creative-Confidence-Unleashing-Potential-Within/dp/038534936X"
+        ],
+        "Practice": [
+          "https://www.creativitygames.net/",
+          "https://www.ideou.com/blogs/inspiration/8-creative-exercises"
+        ],
+        "Community": [
+          "https://www.reddit.com/r/creativity/",
+          "https://www.linkedin.com/groups/1252827/"
+        ]
+      },
+      "Adaptability": {
+        "Platforms": [
+          "https://www.coursera.org/learn/adaptability-in-the-workplace",
+          "https://www.udemy.com/course/adaptability-quotient/"
+        ],
+        "Practice": [
+          "https://www.skillsyouneed.com/ps/adaptability.html"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/44767458-adaptability"
+        ]
+      },
+      "Work Ethic": {
+        "Platforms": [
+          "https://www.udemy.com/course/work-ethic-and-professionalism/",
+          "https://www.skillshare.com/en/browse/work-ethic"
+        ],
+        "Articles": [
+          "https://hbr.org/2020/07/what-it-means-to-have-good-work-ethic"
+        ]
+      },
+      "Conflict Resolution": {
+        "Platforms": [
+          "https://www.coursera.org/learn/conflict-resolution-skills",
+          "https://www.udemy.com/course/conflict-management/"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/108399.Conflict_Resolution",
+          "https://www.amazon.com/Crucial-Conversations-Talking-Stakes-Second/dp/0071771328"
+        ]
+      },
+      "Networking Skills": {
+        "Platforms": [
+          "https://www.linkedin.com/learning/learning-personal-networking",
+          "https://www.udemy.com/course/networking-for-career-success/"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/3228917-never-eat-alone"
+        ]
+      },
+      "Decision Making": {
+        "Platforms": [
+          "https://www.edx.org/course/decision-making-strategies",
+          "https://www.coursera.org/learn/decision-making-mindsets"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/23395758-decision-making",
+          "https://www.amazon.com/Decisive-Make-Better-Choices-Life/dp/0307956393"
+        ]
+      },
+      "Resilience / Stress Management": {
+        "Platforms": [
+          "https://www.coursera.org/learn/resilience-skills",
+          "https://www.headspace.com/",
+          "https://www.calm.com/"
+        ],
+        "Books": [
+          "https://www.goodreads.com/book/show/25614932-the-upside-of-stress",
+          "https://www.amazon.com/Resilience-Science-Mastering-Greatest-Challenges/dp/0199756504"
+        ]
+      },
+      "Mindfulness": {
+        "Platforms": [
+          "https://www.coursera.org/learn/mindfulness",
+          "https://www.udemy.com/course/mindfulness-practices/"
+        ],
+        "Apps": [
+          "https://www.headspace.com/",
+          "https://www.calm.com/"
+        ]
+      }
 }

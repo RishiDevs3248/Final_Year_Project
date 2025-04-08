@@ -12,7 +12,7 @@ import {
     RadioGroup,
     FormControlLabel,
     Button,
-    CircularProgress,
+    // CircularProgress,
     Skeleton,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -73,9 +73,9 @@ const TestPage = () => {
     }, [skills, questions]);
 
     // Handle redirection to the Resources page
-    const handleRedirectToResources = () => {
-        navigate('/resources', { state: { skills } });
-    };
+    // const handleRedirectToResources = () => {
+    //     navigate('/resources', { state: { skills } });
+    // };
 
     const handleAnswerChange = (section, questionIndex, answer) => {
         setAnswers((prev) => ({
@@ -98,14 +98,21 @@ const TestPage = () => {
                 }
             });
             categoryScores[section] = score; // Store score for each section
+            console.log(categoryScores)
+            console.log("------------------------------------------------------------------------------------")
         });
-        setResult(categoryScores);  // Store category-wise results
-        console.log(skills)
-        console.log(result)
-        console.log(questions)
-        console.log(result)
-        if (result && skills && questions) {
-            navigate('/result', { state: { skills, result, questions } });
+        // setResult(categoryScores);  // Store category-wise results
+        // console.log(result)
+        // let xyz = categoryScores
+        // console.log(xyz)
+        // console.log("------------------------------------------------------------------------------------")
+        // console.log("------------------------------------------------------------------------------------")
+        // console.log(skills)
+        // console.log(result)
+        // console.log(questions)
+        // console.log(result)
+        if (categoryScores && skills && questions) {
+            navigate('/result', { state: { skills, result : categoryScores, questions } });
         }
     };
 
@@ -166,7 +173,7 @@ const TestPage = () => {
     }
 
     function DelayedSubmit({ skills, handleSubmit }) {
-        const initialTime = useRef(skills.length * (skillTestTime * 60)); // total seconds once
+        const initialTime = useRef(skills.length * (skillTestTime * 60)); // total seconds once | Total time
         const [timeLeft, setTimeLeft] = useState(initialTime.current);
     
         useEffect(() => {
@@ -174,7 +181,6 @@ const TestPage = () => {
                 setTimeLeft((prev) => {
                     if (prev == 0) {
                         clearInterval(timer);
-                        handleSubmit()
                         handleSubmit()
                         return 0;
                     }
