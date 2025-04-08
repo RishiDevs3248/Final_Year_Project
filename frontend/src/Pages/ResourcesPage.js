@@ -28,17 +28,13 @@ const ResourcesPage = () => {
                         {skillResources.Platforms && (
                             <>
                                 <Typography variant="h6">Platforms:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
                                     {skillResources.Platforms.map((platform, index) => (
-                                        <li>
-                                            <ListItem key={index}>
+                                        <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
                                                 <Button href={platform} target="_blank" color="primary">
                                                     {platform}
                                                 </Button>
-                                            </ListItem>
-                                        </li>
+                                        </ListItem>
                                     ))}
-                                </ul>
 
                             </>
                         )}
@@ -54,62 +50,46 @@ const ResourcesPage = () => {
                         {skillResources.Documentation && (
                             <>
                                 <Typography variant="h6">Documentation:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Documentation.map((doc, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={doc} target="_blank" color="primary">
-                                                    {doc}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Documentation.map((doc, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={doc} target="_blank" color="primary">
+                                            {doc}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         ) || skillResources.Frameworks && (
                             <>
                                 <Typography variant="h6">Frameworks:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Frameworks.map((doc, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={doc} target="_blank" color="primary">
-                                                    {doc}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Frameworks.map((doc, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={doc} target="_blank" color="primary">
+                                            {doc}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         ) || skillResources.Tools && (
                             <>
                                 <Typography variant="h6">Tools:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Tools.map((doc, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={doc} target="_blank" color="primary">
-                                                    {doc}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Tools.map((doc, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={doc} target="_blank" color="primary">
+                                            {doc}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         ) || skillResources.Services && (
                             <>
                                 <Typography variant="h6">Services:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Services.map((doc, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={doc} target="_blank" color="primary">
-                                                    {doc}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Services.map((doc, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={doc} target="_blank" color="primary">
+                                            {doc}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         )}
 
@@ -125,17 +105,13 @@ const ResourcesPage = () => {
                         {skillResources.Practice && (
                             <>
                                 <Typography variant="h6">Practice:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Practice.map((practice, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={practice} target="_blank" color="primary">
-                                                    {practice}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Practice.map((practice, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={practice} target="_blank" color="primary">
+                                            {practice}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         )}
                     </Card>
@@ -150,17 +126,13 @@ const ResourcesPage = () => {
                         {skillResources.Community && (
                             <>
                                 <Typography variant="h6">Community:</Typography>
-                                <ul style={{ listStyleType: 'disc', }}>
-                                    {skillResources.Community.map((community, index) => (
-                                        <li>
-                                            <ListItem key={index}>
-                                                <Button href={community} target="_blank" color="primary">
-                                                    {community}
-                                                </Button>
-                                            </ListItem>
-                                        </li>
-                                    ))}
-                                </ul>
+                                {skillResources.Community.map((community, index) => (
+                                    <ListItem key={index} sx={{ display: 'list-item', listStyleType: 'disc' ,listStylePosition: 'inside', pl: 1 }} >
+                                        <Button href={community} target="_blank" color="primary">
+                                            {community}
+                                        </Button>
+                                    </ListItem>
+                                ))}
                             </>
                         )}
                     </Card>

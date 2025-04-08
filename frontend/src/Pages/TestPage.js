@@ -20,6 +20,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const TestPage = () => {
     const location = useLocation();
     const { skills } = location.state || { skills: [] };
+    const { skillTestTime } = location.state;
     const [questions, setQuestions] = useState(null);
     const [answers, setAnswers] = useState({});
     const [result, setResult] = useState(null);
@@ -99,7 +100,13 @@ const TestPage = () => {
             categoryScores[section] = score; // Store score for each section
         });
         setResult(categoryScores);  // Store category-wise results
-        return 0 ;
+        console.log(skills)
+        console.log(result)
+        console.log(questions)
+        console.log(result)
+        if (result && skills && questions) {
+            navigate('/result', { state: { skills, result, questions } });
+        }
     };
 
 
@@ -159,7 +166,7 @@ const TestPage = () => {
     }
 
     function DelayedSubmit({ skills, handleSubmit }) {
-        const initialTime = useRef(skills.length * 1); // total seconds once
+        const initialTime = useRef(skills.length * (skillTestTime * 60)); // total seconds once
         const [timeLeft, setTimeLeft] = useState(initialTime.current);
     
         useEffect(() => {
@@ -167,6 +174,7 @@ const TestPage = () => {
                 setTimeLeft((prev) => {
                     if (prev == 0) {
                         clearInterval(timer);
+                        handleSubmit()
                         handleSubmit()
                         return 0;
                     }
@@ -312,7 +320,7 @@ const TestPage = () => {
                         >
                             View Resources
                         </Button> */}
-                        {result && (
+                        {/* {result && (
                             <div style={{ marginTop: '20px' }}>
                                 <Typography variant="h5" gutterBottom>
                                     Your Results:
@@ -336,7 +344,7 @@ const TestPage = () => {
                                 </Button>
                             </div>
 
-                        )}
+                        )} */}
                     </div>
                 </div>
             </div>
