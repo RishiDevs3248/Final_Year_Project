@@ -16,11 +16,12 @@ import {
     Skeleton,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LottieAnimation from '../components/LoadingAnimation';
 
 const TestPage = () => {
     const location = useLocation();
     const { skills } = location.state || { skills: [] };
-    const { skillTestTime } = location.state;
+    // const { skillTestTime } = location.state;
     const [questions, setQuestions] = useState(null);
     const [answers, setAnswers] = useState({});
     const [result, setResult] = useState(null);
@@ -112,7 +113,7 @@ const TestPage = () => {
         // console.log(questions)
         // console.log(result)
         if (categoryScores && skills && questions) {
-            navigate('/result', { state: { skills, result : categoryScores, questions } });
+            navigate('/result', { state: { skills, result: categoryScores, questions } });
         }
     };
 
@@ -136,7 +137,7 @@ const TestPage = () => {
                     borderRadius: "20px",
                     boxSizing: "border-box"
                 }}>
-                    <div style={{
+                    <div style={{ //3rd
                         backgroundColor: "#fff",
                         width: "100%",
                         minHeight: "calc(100vh - 185px)",
@@ -145,7 +146,8 @@ const TestPage = () => {
                         overflow: "auto",
                         boxSizing: "border-box",
                         display: "flex",
-                        flexDirection: "column"
+                        flexDirection: "column",
+                        // justifyContent:"center"
                     }}>
                         <div
                             style={{
@@ -153,17 +155,16 @@ const TestPage = () => {
                                 display: "flex",
                                 flexDirection: "row",
                                 justifyContent: "center",
+                                alignItems:"center",
                                 flex: 1, // This is key to fill remaining height!
+                                
                             }}
                         >
-                            <div style={{ backgroundColor: "gray", padding: "20px", borderRadius: "12px", width: "80%" }}>
-                                <Skeleton variant="text" width={200} height={70} />
-                                <Skeleton variant="rectangular" height={100} />
-                                <Skeleton variant="circular" width={40} height={40} />
-                                <Typography variant="h6" style={{ marginTop: '10px' }}>
-                                    Loading questions...
-                                </Typography>
+                            <div style={{ borderRadius: "12px", width: "80%"}}>
+                                <LottieAnimation></LottieAnimation>
                             </div>
+
+
                         </div>
                     </div>
 
@@ -173,9 +174,9 @@ const TestPage = () => {
     }
 
     function DelayedSubmit({ skills, handleSubmit }) {
-        const initialTime = useRef(skills.length * (skillTestTime * 60)); // total seconds once | Total time
+        const initialTime = useRef(skills.length * (5 * 60)); // total seconds once | Total time
         const [timeLeft, setTimeLeft] = useState(initialTime.current);
-    
+
         useEffect(() => {
             const timer = setInterval(() => {
                 setTimeLeft((prev) => {
@@ -187,10 +188,10 @@ const TestPage = () => {
                     return prev - 1;
                 });
             }, 1000);
-    
+
             return () => clearInterval(timer);
         }, [handleSubmit]);
-    
+
         const formatTime = (seconds) => {
             const mins = Math.floor(seconds / 60);
             const secs = seconds % 60;
@@ -198,7 +199,7 @@ const TestPage = () => {
                 .toString()
                 .padStart(2, "0")}`;
         };
-    
+
         return (
             <div>
                 <h3>Auto-submitting in: {formatTime(timeLeft)}</h3>

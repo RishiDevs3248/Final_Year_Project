@@ -1,5 +1,6 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+
 export default function ResultPage() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -40,22 +41,26 @@ export default function ResultPage() {
                         {/* Every content here */}
 
 
-                        <div style={{ marginTop: '20px' }}>
-                            <Typography variant="h5" gutterBottom>
+                        <div style={{ padding: "52px" }}>
+                            <Typography variant="h5" gutterBottom sx={{ marginBottom: "40px" }}>
                                 Your Results:
                             </Typography>
-                            <Box>
+                            <Box sx={{
+                                gap: "52px", display: "flex", flexWrap: "wrap"
+                            }}>
                                 {Object.keys(result).map((section) => (
                                     <Box sx={{
                                         position: 'relative',
                                         display: 'inline-flex',
                                         flexDirection: 'column',
                                         alignItems: 'center',
-                                        mt: 2,
                                         // Box style 
                                         border: "2px solid #808080",
                                         padding: "20px",
                                         borderRadius: "12px",
+                                        width:"18.2%",
+                                        paddingTop:"30px",
+                                        paddingBottom:"30px"
                                     }}>
                                         <Typography key={section} variant="h6" style={{ marginBottom: '10px' }}>
                                             {`${section}: ${result[section]} / ${questions[section].length}`}
@@ -68,7 +73,7 @@ export default function ResultPage() {
                                                 size={150}
                                                 thickness={5}
                                                 sx={{
-                                                    color: '#808080',
+                                                    color: '#8080802e',
                                                     // color: '#000',
                                                     position: 'absolute',
                                                 }}
@@ -76,7 +81,7 @@ export default function ResultPage() {
 
                                             <CircularProgress
                                                 variant="determinate"
-                                                value={(result[section] / questions[section].length)*100}
+                                                value={(result[section] / questions[section].length) * 100}
                                                 size={150}
                                                 thickness={5}
                                                 sx={{
@@ -108,27 +113,34 @@ export default function ResultPage() {
 
                                 ))}
                             </Box>
-
-                            {/* resources button */}
-                            <Button
-                                variant="outlined"
-                                color="secondary"
-                                sx={{
-                                    mt: 3,
-                                    borderRadius: "12px",
-                                }}
-                                onClick={handleRedirectToResources}
-                                style={{ marginTop: '20px' }}
-                            >
-                                View Resources
-                            </Button>
+                            <div style={{display:"flex", justifyContent:'end'}}>
+                                {/* resources button */}
+                                <Button
+                                    variant="outlined"
+                                    color="secondary"
+                                    sx={{
+                                        marginTop: "40px",
+                                        borderRadius: "12px",
+                                        color: "#ff5834",
+                                        borderColor: "#ff5834",
+                                        '&:hover': {
+                                            backgroundColor: '#ff5834',
+                                            color: '#fff',
+                                            borderColor: '#ff5834',
+                                        },
+                                    }}
+                                    onClick={handleRedirectToResources}
+                                >
+                                    View Resources
+                                </Button>
+                            </div>
                         </div>
 
 
 
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

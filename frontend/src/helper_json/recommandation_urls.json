@@ -1,5 +1,5 @@
 {
-    "Python": {
+    "python": {
         "Platforms": [
             "https://www.codecademy.com/learn/learn-python-3",
             "https://www.freecodecamp.org/learn/scientific-computing-with-python/",
@@ -24,7 +24,7 @@
             "https://www.reddit.com/r/learnpython/"
         ]
     },
-    "Java": {
+    "java": {
         "Platforms": [
             "https://docs.oracle.com/en/java/javase/19/docs/api/index.html",
             "https://www.codecademy.com/learn/learn-java",
@@ -44,7 +44,7 @@
             "https://www.reddit.com/r/java/"
         ]
     },
-    "Javascript": {
+    "javascript": {
         "Platforms": [
             "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
             "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
@@ -71,7 +71,7 @@
             "https://www.reddit.com/r/javascript/"
         ]
     },
-    "Git": {
+    "git": {
         "Platforms": [
             "https://lab.github.com/",
             "https://www.atlassian.com/git/tutorials",
@@ -91,7 +91,7 @@
             "https://github.com/community/community"
         ]
     },
-    "Data Science": {
+    "data science": {
         "Platforms": [
             "https://www.coursera.org/specializations/jhu-data-science",
             "https://www.edx.org/course/subject/data-science",
@@ -113,7 +113,7 @@
             "https://www.reddit.com/r/datascience/"
         ]
     },
-    "Cloud Computing": {
+    "cloud computing": {
         "Platforms": [
             "https://aws.amazon.com/education/awseducate/",
             "https://cloud.google.com/training/",
@@ -130,7 +130,7 @@
             "https://docs.microsoft.com/en-us/azure/"
         ]
     },
-    "C++": {
+    "c++": {
         "Platforms": [
             "https://www.cplusplus.com/doc/",
             "https://www.learncpp.com/",
@@ -149,7 +149,7 @@
             "https://www.reddit.com/r/cpp/"
         ]
     },
-    "C#": {
+    "c#": {
         "Platforms": [
             "https://docs.microsoft.com/en-us/dotnet/csharp/",
             "https://www.w3schools.com/cs/"
@@ -167,7 +167,7 @@
             "https://www.reddit.com/r/csharp/"
         ]
     },
-    "Go": {
+    "go": {
         "Platforms": [
             "https://go.dev/tour/",
             "https://www.w3schools.com/go/"
@@ -185,7 +185,7 @@
             "https://www.reddit.com/r/golang/"
         ]
     },
-    "Ruby": {
+    "ruby": {
         "Platforms": [
             "https://www.ruby-lang.org/en/",
             "https://www.codecademy.com/learn/learn-ruby",
@@ -204,7 +204,7 @@
             "https://www.reddit.com/r/ruby/"
         ]
     },
-    "SQL": {
+    "sql": {
         "Platforms": [
             "https://www.codecademy.com/learn/learn-sql",
             "https://www.sqlcourse.com/",
@@ -227,7 +227,7 @@
             "https://www.reddit.com/r/SQL/"
         ]
     },
-    "DevOps": {
+    "devops": {
         "Platforms": [
             "https://www.edx.org/course/introduction-to-devops",
             "https://www.coursera.org/specializations/devops",
@@ -247,7 +247,7 @@
             "https://www.reddit.com/r/devops/"
         ]
     },
-    "Machine Learning": {
+    "machine learning": {
         "Platforms": [
             "https://www.coursera.org/learn/machine-learning",
             "https://www.udacity.com/course/intro-to-machine-learning--ud120",
@@ -267,7 +267,7 @@
             "https://www.reddit.com/r/MachineLearning/"
         ]
     },
-    "Cybersecurity": {
+    "cybersecurity": {
         "Platforms": [
             "https://www.cybrary.it/",
             "https://www.coursera.org/specializations/it-security",
@@ -288,7 +288,7 @@
             "https://www.reddit.com/r/cybersecurity/"
         ]
     },
-    "Web Development": {
+    "web development": {
         "Platforms": [
             "https://www.freecodecamp.org/",
             "https://www.theodinproject.com/",
@@ -307,7 +307,7 @@
             "https://www.reddit.com/r/webdev/"
         ]
     },
-    "Mobile App Development": {
+    "mobile development": {
         "Platforms": [
             "https://developer.android.com/courses",
             "https://developer.apple.com/learn/curriculum/"
@@ -327,7 +327,7 @@
             "https://www.reddit.com/r/iOSProgramming/"
         ]
     },
-    "Artificial Intelligence": {
+    "artificial intelligence": {
         "Platforms": [
             "https://www.coursera.org/learn/ai-for-everyone",
             "https://www.edx.org/course/artificial-intelligence-ai",
@@ -347,7 +347,7 @@
             "https://www.reddit.com/r/artificial/"
         ]
     },
-    "Blockchain": {
+    "blockchain": {
         "Platforms": [
             "https://www.coursera.org/specializations/blockchain",
             "https://www.edx.org/course/blockchain-fundamentals",
@@ -366,7 +366,7 @@
             "https://www.reddit.com/r/blockchain/"
         ]
     },
-    "UI/UX Design": {
+    "ui/ux design": {
         "Platforms": [
             "https://www.coursera.org/specializations/ui-ux-design",
             "https://www.edx.org/course/introduction-to-user-experience",
@@ -386,7 +386,7 @@
             "https://www.reddit.com/r/UXDesign/"
         ]
     },
-    "Networking": {
+    "networking": {
         "Platforms": [
             "https://www.coursera.org/specializations/computer-networking",
             "https://www.edx.org/course/introduction-to-computer-networking",
@@ -407,7 +407,7 @@
             "https://www.reddit.com/r/networking/"
         ]
     },
-    "Emotional Intelligence": {
+    "emotional intelligence": {
         "Platforms": [
           "https://www.coursera.org/learn/emotional-intelligence",
           "https://www.udemy.com/course/emotional-intelligence-at-work/",
@@ -426,7 +426,7 @@
           "https://www.linkedin.com/groups/12930299/"
         ]
       },
-      "Resume Writing": {
+      "resume writing": {
         "Platforms": [
           "https://www.coursera.org/learn/resume-writing",
           "https://resumegenius.com/",
@@ -445,7 +445,7 @@
           "https://www.linkedin.com/groups/3851283/"
         ]
       },
-      "Interview Preparation": {
+      "interview preparation": {
         "Platforms": [
           "https://www.pramp.com/",
           "https://interviewing.io/",
@@ -464,7 +464,7 @@
           "https://www.linkedin.com/groups/74194/"
         ]
       },
-      "Time Management": {
+      "time management": {
         "Platforms": [
           "https://www.coursera.org/learn/work-smarter-not-harder",
           "https://www.udemy.com/course/productivity-and-time-management-for-the-overwhelmed/",
@@ -483,7 +483,7 @@
           "https://www.linkedin.com/groups/85659/"
         ]
       },
-      "Problem Solving": {
+      "problem solving": {
         "Platforms": [
           "https://www.coursera.org/learn/problem-solving",
           "https://www.edx.org/course/problem-solving-and-critical-thinking-skills"
@@ -501,7 +501,7 @@
           "https://www.linkedin.com/groups/74184/"
         ]
       },
-      "Creativity": {
+      "creativity": {
         "Platforms": [
           "https://www.coursera.org/learn/creative-thinking",
           "https://www.skillshare.com/browse/creativity"
@@ -519,7 +519,7 @@
           "https://www.linkedin.com/groups/1252827/"
         ]
       },
-      "Adaptability": {
+      "adaptability": {
         "Platforms": [
           "https://www.coursera.org/learn/adaptability-in-the-workplace",
           "https://www.udemy.com/course/adaptability-quotient/"
@@ -531,7 +531,7 @@
           "https://www.goodreads.com/book/show/44767458-adaptability"
         ]
       },
-      "Work Ethic": {
+      "work ethic": {
         "Platforms": [
           "https://www.udemy.com/course/work-ethic-and-professionalism/",
           "https://www.skillshare.com/en/browse/work-ethic"
@@ -540,7 +540,7 @@
           "https://hbr.org/2020/07/what-it-means-to-have-good-work-ethic"
         ]
       },
-      "Conflict Resolution": {
+      "conflict resolution": {
         "Platforms": [
           "https://www.coursera.org/learn/conflict-resolution-skills",
           "https://www.udemy.com/course/conflict-management/"
@@ -550,7 +550,7 @@
           "https://www.amazon.com/Crucial-Conversations-Talking-Stakes-Second/dp/0071771328"
         ]
       },
-      "Networking Skills": {
+      "networking skills": {
         "Platforms": [
           "https://www.linkedin.com/learning/learning-personal-networking",
           "https://www.udemy.com/course/networking-for-career-success/"
@@ -559,7 +559,7 @@
           "https://www.goodreads.com/book/show/3228917-never-eat-alone"
         ]
       },
-      "Decision Making": {
+      "decision making": {
         "Platforms": [
           "https://www.edx.org/course/decision-making-strategies",
           "https://www.coursera.org/learn/decision-making-mindsets"
@@ -569,7 +569,7 @@
           "https://www.amazon.com/Decisive-Make-Better-Choices-Life/dp/0307956393"
         ]
       },
-      "Resilience / Stress Management": {
+      "resilience management": {
         "Platforms": [
           "https://www.coursera.org/learn/resilience-skills",
           "https://www.headspace.com/",
@@ -580,7 +580,7 @@
           "https://www.amazon.com/Resilience-Science-Mastering-Greatest-Challenges/dp/0199756504"
         ]
       },
-      "Mindfulness": {
+      "mindfulness": {
         "Platforms": [
           "https://www.coursera.org/learn/mindfulness",
           "https://www.udemy.com/course/mindfulness-practices/"
