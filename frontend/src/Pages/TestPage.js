@@ -155,12 +155,12 @@ const TestPage = () => {
                                 display: "flex",
                                 flexDirection: "row",
                                 justifyContent: "center",
-                                alignItems:"center",
+                                alignItems: "center",
                                 flex: 1, // This is key to fill remaining height!
-                                
+
                             }}
                         >
-                            <div style={{ borderRadius: "12px", width: "80%"}}>
+                            <div style={{ borderRadius: "12px", width: "80%" }}>
                                 <LottieAnimation></LottieAnimation>
                             </div>
 
@@ -202,7 +202,7 @@ const TestPage = () => {
 
         return (
             <div>
-                <h3>Auto-submitting in: {formatTime(timeLeft)}</h3>
+                <h3>{formatTime(timeLeft)}</h3>
             </div>
         );
     }
@@ -241,12 +241,16 @@ const TestPage = () => {
                     boxSizing: "border-box"
                 }}>
                     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-                        <div>
-                            <DelayedSubmit skills={skills} handleSubmit={handleSubmit} />
+                        <div style={{display:"flex", flexDirection:"row" , justifyContent:"space-between"}}>
+                            <Typography variant="h4" gutterBottom sx={{
+                                display:"flex",justifyContent:"center",margin:"auto",marginLeft:"0px"
+                            }}>
+                                Skill Test
+                            </Typography>
+                            <div style={{ display: "flex", justifyContent: "end", fontSize: "25px" }}>
+                                <DelayedSubmit skills={skills} handleSubmit={handleSubmit} />
+                            </div>
                         </div>
-                        <Typography variant="h4" gutterBottom>
-                            Skill Test
-                        </Typography>
                         {Object.keys(questions).map((section) => (
                             // Whole body Ç
                             <Accordion key={section} style={{

@@ -141,7 +141,7 @@ const UploadPDF = () => {
 
     return (
         <Box sx={{ p: 4 }}>
-            <Typography variant="h4" sx={{ mb: 3, textAlign: "center" }}>
+            <Typography variant="h4" sx={{ mb: 3, textAlign: "center" ,fontFamily:"Lato"}}>
                 Upload PDF
             </Typography>
             <Grid container justifyContent="center" alignItems="center">
@@ -156,10 +156,10 @@ const UploadPDF = () => {
                             borderRadius: "12px"
                         }}
                     >
-                        <Typography variant="body1" sx={{ mb: 2 }}>
+                        <Typography variant="body1" sx={{ mb: 2 ,fontFamily:"Lato"}}>
                             Drag and drop a PDF file here, or click to select a file
                         </Typography>
-                        {file && <Typography variant="body2">Selected file: {file.name}</Typography>}
+                        {file && <Typography variant="body2" sx={{fontFamily:"Lato"}}>Selected file: {file.name}</Typography>}
                         <input
                             id="fileInput"
                             type="file"
@@ -370,7 +370,8 @@ const UploadPDF = () => {
                     )}
 
                     {/* Next page button */}
-                    <Button
+                    {
+                        skills.length == 0 ? <></>:<Button
                         variant="outlined"
                         color="secondary"
                         sx={{
@@ -382,6 +383,19 @@ const UploadPDF = () => {
                     >
                         Go to Test Page
                     </Button>
+                    }
+                    {/* <Button
+                        variant="outlined"
+                        color="secondary"
+                        sx={{
+                            mt: 3,
+                            borderRadius: "12px"
+                        }}
+                        onClick={handleGoToTestPage}
+                        disabled={skills.length === 0}
+                    >
+                        Go to Test Page
+                    </Button> */}
                 </Box>
             </Box>
         </Box>

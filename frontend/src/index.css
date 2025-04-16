@@ -31,14 +31,30 @@ code {
 }
 
 
+/* @font-face {
+  font-family: Montserrat;
+  src: url(../public/Montserrat-Medium.ttf);
+} */
 @font-face {
   font-family: Montserrat;
-  src: url(../public/MontserratAlternates-Regular.ttf);
+  src: url(../public/Sniglet-Regular.ttf);
 }
+/* @font-face {
+  font-family: Montserrat;
+  src: url(../public/MontserratAlternates-Regular.ttf);
+} */
+
+
+
+@font-face {
+  font-family: Lato;
+  src: url(../public/Nunito-Regular.ttf);
+}
+/* 
 @font-face {
   font-family: Lato;
   src: url(../public/Lato-Regular.ttf);
-}
+} */
 
 .Montserrat{
   font-family: Montserrat;
