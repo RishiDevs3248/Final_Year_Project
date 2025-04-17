@@ -138,6 +138,7 @@ const UploadPDF = () => {
         }
         navigate("/test", { state: { skills } });
     };
+    
 
     return (
         <Box sx={{ p: 4 }}>
